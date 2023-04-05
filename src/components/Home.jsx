@@ -1,6 +1,6 @@
 import React from "react";
 import Lottie from "lottie-react";
-import BookLover from "../assets/98849-book-lover.json";
+import BookLover from "../assets/book-lover.json";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 
