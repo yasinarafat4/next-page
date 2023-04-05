@@ -3,8 +3,8 @@ const Footer = () => {
     <footer className="px-4 divide-y  text-gray-800 relative bottom-0 left-0 bg-gray-200 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
       <div className="py-6 text-lg text-center text-gray-600">
         <p>
-          Copyright © 2023 <span className="font-bold text-xl">nextPage</span> -
-          All Rights Reserved.
+          Copyright © 2023 - All Rights Reserved from{" "}
+          <span className="font-bold text-xl">nextPage</span>.
         </p>
         <div className="flex items-center justify-center gap-2">
           <svg
