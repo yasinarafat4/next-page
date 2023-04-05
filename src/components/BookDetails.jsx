@@ -1,12 +1,20 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
 const BookDetails = () => {
+  // loading spinner
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingSpinner />;
+  }
+
   const bookData = useLoaderData();
   const [fold, setFold] = useState(true);
   console.log(bookData);
   const { image, title, desc, authors, publisher, year, rating, url, price } =
     bookData;
+
   return (
     <div className="my-container">
       {/* Container Box */}
@@ -27,10 +35,19 @@ const BookDetails = () => {
           <h5 className="mb-3 text-3xl font-extrabold leading-none sm:text-4xl">
             {title}
           </h5>
-          <p className=" text-gray-900">Authors: {authors.substring(0, 50)}</p>
-          <p className=" text-gray-900">Publisher: {publisher}</p>
-          <p className=" text-gray-900">Year: {year}</p>
-          <p className="mb-5 text-gray-900">Rating: {rating}</p>
+          <p className=" text-gray-900 ">
+            <span className="font-bold"> Author:</span>{" "}
+            {authors.substring(0, 50)}
+          </p>
+          <p className=" text-gray-900">
+            <span className="font-bold"> Publisher:</span> {publisher}
+          </p>
+          <p className=" text-gray-900">
+            <span className="font-bold"> Year:</span> {year}
+          </p>
+          <p className="mb-5 text-gray-900">
+            <span className="font-bold"> Ratings:</span> {rating}
+          </p>
           {fold ? (
             <>
               <p className=" text-gray-500">{desc.substring(0, 100)}.....</p>
@@ -57,7 +74,7 @@ const BookDetails = () => {
             <a href={url} target="_blank" className="btn">
               Buy Now
             </a>
-            <p className="items-center font-extrabold text-gray-600 ">
+            <p className="items-center font-extrabold text-gray-800 ">
               Price: {price}
             </p>
           </div>
