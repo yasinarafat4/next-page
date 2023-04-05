@@ -1,8 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Book = ({ book }) => {
   const { image, title, subtitle, price } = book;
+
+  // loading spinner
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingSpinner />;
+  }
   return (
     <Link to={`../book/${book.isbn13}`}>
       <div className="overflow-hidden relative transition duration-200 transform hover:-translate-y-2 rounded-lg shadow-lg hover:shadow-2xl">

@@ -1,9 +1,15 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 const App = () => {
+  // loading spinner
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingSpinner />;
+  }
   return (
     <div>
       <Header />

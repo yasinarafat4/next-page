@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigation } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
 const About = () => {
+  // loading spinner
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingSpinner />;
+  }
   return (
     <div className="my-container">
       <div className="max-w-xl sm:mx-auto lg:max-w-2xl">

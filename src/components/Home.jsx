@@ -2,9 +2,16 @@ import React from "react";
 import Lottie from "lottie-react";
 import BookLover from "../assets/book-lover.json";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Home = () => {
+  // loading spinner
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <LoadingSpinner />;
+  }
+
   return (
     <div className="my-container flex flex-col items-center justify-between lg:flex-row">
       {/* Text Content */}
